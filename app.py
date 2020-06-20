@@ -1,13 +1,13 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return 'Hi!'
+    return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5001)  # port default 5000, if you wanna change use post=number_port
+    app.run(debug=True)
 
 
 
