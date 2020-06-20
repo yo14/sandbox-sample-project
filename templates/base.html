@@ -1,14 +1,11 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Project</title>
-</head>
-<body>
+{% extends 'bootstrap/base.html' %}    <!-- step 01 inherit Bootstrap modul -->
+<!--step 02 using block title, inherit from Boostrap modul -->
+{% block title %}
+    My Project
+{% endblock %}
+
+<!--step 03 using block content, inherit from Boostrap modul -->
+{% block content %}
     {% block body %}
     {% endblock %}
-</body>
-</html>
+{% endblock %}
