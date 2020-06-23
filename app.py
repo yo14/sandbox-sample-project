@@ -42,6 +42,10 @@ def sendme():
         return request.form['password']       # get data from form input
     return render_template('testingpage.html')
 
+@app.errorhandler(404)
+def page_in_dream(e):
+    return 'Please change your mind, find another request'
+
 if __name__ == '__main__':
     app.run(debug=True)
 
