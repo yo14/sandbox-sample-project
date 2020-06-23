@@ -18,8 +18,12 @@ mysql = MySQL(app)
 @app.route('/')
 def index():
     cur = mysql.connection.cursor()
-    cur.execute("INSERT INTO user VALUES(%s)",['Mike'])  # 'Mike' should in list form
-    mysql.connection.commit()
+    # cur.execute("INSERT INTO user VALUES(%s)",['Mike'])
+    # mysql.connection.commit()
+    result_value = cur.execute("SELECT * FROM user")
+    if result_value > 0:
+        users = cur.fetchall()
+        print(users)  # you can see the result inside Terminal, after refresh the browser
     return render_template('index.html')
 
 @app.route('/about')
