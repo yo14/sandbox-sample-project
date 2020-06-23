@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_bootstrap import Bootstrap
 from flask_mysqldb import MySQL
 import yaml
@@ -7,7 +7,7 @@ app = Flask(__name__)
 Bootstrap(app)
 
 # Configure db
-# db = yaml.load(open('db.yaml'))  yaml.load sudah deprecated
+# db = yaml.load(open('db.yaml'))  yaml.load has deprecated
 db = yaml.safe_load(open('db.yaml'))
 app.config['MYSQL_HOST'] = db['mysql_host']
 app.config['MYSQL_USER'] = db['mysql_user']
@@ -33,6 +33,14 @@ def about():
 @app.route('/css')
 def css():
     return render_template('css.html')
+
+@app.route('/testing', methods=['GET','POST'])   # arrange method post
+def sendme():
+    # Perhatikan bagian ini
+    if request.method == 'POST':
+        # return 'Successfully registered'
+        return request.form['password']       # get data from form input
+    return render_template('testingpage.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
