@@ -1,4 +1,6 @@
-from flask import Flask, render_template, request
+import os
+
+from flask import Flask, render_template, request, session
 from flask_mysqldb import MySQL
 import yaml
 
@@ -13,6 +15,8 @@ app.config['MYSQL_PASSWORD'] = db['mysql_password']
 app.config['MYSQL_DB'] = db['mysql_db']
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'         # it makes the data can call as a object variable.fieldname
 mysql = MySQL(app)
+
+app.config['SECRET_KEY'] = os.urandom(24)        # it related with sesssion. for proctecting session
 
 @app.route('/', methods=['GET','POST'])
 def index():
@@ -31,6 +35,7 @@ def employees():
     result_value = cur.execute("SELECT * FROM employee")
     if result_value > 0:
         employees = cur.fetchall()
+        session['username'] = employees[0]['name']
         return render_template('employees.html', employees=employees)
 
 

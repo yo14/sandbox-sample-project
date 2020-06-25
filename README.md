@@ -18,3 +18,29 @@ mysql> SELECT * FROM employee;
 Empty set (0,00 sec)
 </pre>
 
+<br><br>
+Making session<br>
+Need: session<br>
+<pre>
+from flask import Flask, render_template, request, session
+</pre>
+<br>
+Implement:
+<pre>
+session['username'] = 'username'
+</pre>
+<br>
+For protection to session, use 
+<pre>
+app.config['SECRET_KEY'] = os.urandom(24)
+</pre>
+<br>
+Don't forget to import:
+<pre>
+import os
+</pre>
+
+
+
+
+
