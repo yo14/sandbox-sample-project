@@ -39,6 +39,30 @@ Don't forget to import:
 <pre>
 import os
 </pre>
+<br>
+We'll add password field, so we alter the table
+<pre>
+mysql> alter table employee 
+    -> add password varchar(255);
+Query OK, 0 rows affected (0,60 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe employee;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| name     | varchar(255) | YES  |     | NULL    |       |
+| age      | int(11)      | YES  |     | NULL    |       |
+| password | varchar(255) | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+3 rows in set (0,00 sec)
+
+mysql> 
+mysql> truncate table employee;
+Query OK, 0 rows affected (0,21 sec)
+</pre>
+
+
 
 
 

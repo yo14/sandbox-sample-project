@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% block sub_content %}
 <form action="" method="post">
-    Name: <input type="password" name="name">
+    Name : <input type="text" name="name">
+    Password : <input type="password" name="password">
     Age : <input type="text" name="age">
-    <input type="submit" value="Save">
+    <input type="submit" value="Save Data">
 </form>
-<h1>{{ session['username'] }}</h1>
+<!--<h1>{{ session['username'] }}</h1>-->
 {% endblock %}

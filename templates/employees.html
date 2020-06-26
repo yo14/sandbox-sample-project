@@ -2,13 +2,23 @@
 
 {% block sub_content %}
 
-    <table border="1">
-        {% for employee in employees %}
-        <tr>
+  <h2>Employee Data Center</h2>
+  <p>This data is restricted. Your session is collected by system automatically.</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+      </tr>
+    </thead>
+    <tbody>
+       {% for employee in employees %}
+          <tr>
             <td>{{ employee.name }}</td>
             <td>{{ employee.age }}</td>
-        </tr>
+          </tr>
         {% endfor %}
-    </table>
+    </tbody>
+  </table>
 
 {% endblock %}
